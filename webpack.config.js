@@ -4,6 +4,16 @@ const rules = [
         test: /\.tsx?/,
         exclude: /node_modules/,
         loader: 'babel-loader'
+    },
+    {
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader']
+    },
+    {
+        test: /\.(png|svg|jpg|gif)$/,
+        loader: [
+            'file-loader'
+        ]
     }
 ]
 
@@ -19,6 +29,7 @@ module.exports = {
     resolve: { extensions: ['.ts', '.tsx', '.js', '.jsx'] },
     devServer: {
         contentBase: './',
-        port: 5000
+        port: 3000,
+        historyApiFallback: true
     }
 }
